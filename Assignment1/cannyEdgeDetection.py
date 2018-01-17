@@ -157,19 +157,23 @@ def non_max_supression(gradient, direction) :
     for i in range(M):
         for j in range(N):
             if(direction[i][j] == 0) :
-                if((j!= 0 and j!= N-1) and (gradient[i, j] >= gradient[i, j - 1]) and (gradient[i, j] >= gradient[i, j + 1])):
+                if((j!= 0 and j!= N-1) and (gradient[i, j] >= gradient[i, j - 1]) 
+                	and (gradient[i, j] >= gradient[i, j + 1])):
                     S[i,j] = gradient[i,j]
                     
             elif(direction[i][j] == 90) :
-                if ((i!=0 and i!= M-1) and (gradient[i, j] >= gradient[i - 1, j]) and (gradient[i, j] >= gradient[i + 1, j])):
-                    S[i,j] = gradient[i,j]
-            
-            elif(direction[i][j] == 45) :
-                if ((i!=0 and i!=M-1 and j!=0 and j!= N-1 ) and (gradient[i, j] >= gradient[i - 1, j + 1]) and (gradient[i, j] >= gradient[i + 1, j - 1])):
+                if ((i!=0 and i!= M-1) and (gradient[i, j] >= gradient[i - 1, j]) 
+                	and (gradient[i, j] >= gradient[i + 1, j])):
                     S[i,j] = gradient[i,j]
             
             elif(direction[i][j] == 135) :
-                if ((i!=0 and i!=M-1 and j!=0 and j!= N-1 ) and gradient[i, j] >= gradient[i - 1, j - 1]) and (gradient[i, j] >= gradient[i + 1, j + 1]):
+                if ((i!=0 and i!=M-1 and j!=0 and j!= N-1 ) and (gradient[i, j] >= gradient[i - 1, j + 1]) 
+                	and (gradient[i, j] >= gradient[i + 1, j - 1])):
+                    S[i,j] = gradient[i,j]
+            
+            elif(direction[i][j] == 45) :
+                if ((i!=0 and i!=M-1 and j!=0 and j!= N-1 ) and gradient[i, j] >= gradient[i - 1, j - 1]) and 
+                (gradient[i, j] >= gradient[i + 1, j + 1]):
                     S[i,j] = gradient[i,j]
     
     return S
